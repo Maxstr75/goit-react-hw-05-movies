@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
+import { Loader } from 'components/Loader/Loader';
 
 export const App = () => {
   return (
@@ -13,9 +15,11 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Routes>
-        <Route path="/" element={<Header />}></Route>
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Header />}></Route>
+        </Routes>
+      </Suspense>
     </div>
   );
 };
