@@ -1,3 +1,6 @@
+import { Routes, Route } from 'react-router-dom';
+import { Header } from 'components/Header/Header';
+
 export const App = () => {
   return (
     <div
@@ -10,7 +13,9 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      React homework template
+      <Routes>
+        <Route path="/" element={<Header />}></Route>
+      </Routes>
     </div>
   );
 };

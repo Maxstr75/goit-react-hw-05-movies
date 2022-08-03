@@ -1,15 +1,12 @@
 import { Outlet } from 'react-router-dom';
+import { Link } from '@mui/material';
 
 export const Header = () => {
   return (
     <>
       <nav>
-        <container>
-          <wrapper>
-            <link to="/">Home</link>
-            <link to="/">Movies</link>
-          </wrapper>
-        </container>
+        <Link to="/">Home</Link>
+        <Link to="/">Movies</Link>
       </nav>
       <main>
         <Outlet />
