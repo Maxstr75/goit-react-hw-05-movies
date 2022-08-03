@@ -5,6 +5,7 @@ import { Loader } from 'components/Loader/Loader';
 
 const HomePage = () =>
   import('pages/HomePage' /* webpackChunkName: "home-page" */);
+
 export const App = () => {
   return (
     <div

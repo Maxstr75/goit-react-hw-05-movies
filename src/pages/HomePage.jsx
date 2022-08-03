@@ -9,7 +9,7 @@ export const HomePages = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchData = async () => {
       try {
         const {
           data: { results },
@@ -20,7 +20,7 @@ export const HomePages = () => {
         setError(e.message);
       }
     };
-    fetch();
+    fetchData();
   }, []);
 
   //   const { films, error } = useFetchTrends();
