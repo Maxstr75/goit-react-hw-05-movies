@@ -1,29 +1,29 @@
-// import { useState, useEffect } from 'react';
-// import fetchTrends from 'services/api';
-import { MovieList } from '../components/MovieList';
-import { useFetchTrends } from 'hooks/useFetchTrends';
+import { useState, useEffect } from 'react';
+import { fetchTrends } from 'services/api';
+import { MovieList } from 'components/MovieList/MovieList';
+// import { useFetchTrends } from 'hooks/useFetchTrends';
 
 export const HomePages = () => {
   // Вынес в hooks
-  // const [films, setFilms] = useState([]);
-  //   const [error, setError] = useState(null);
+  const [films, setFilms] = useState([]);
+  const [error, setError] = useState(null);
 
-  //   useEffect(() => {
-  //     const fetch = async () => {
-  //       try {
-  //         const {
-  //           data: { results },
-  //         } = await fetchTrends();
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const {
+          data: { results },
+        } = await fetchTrends();
 
-  //         setFilms(results);
-  //       } catch (e) {
-  //         setError(e.message);
-  //       }
-  //     };
-  //     fetch();
-  //   }, []);
+        setFilms(results);
+      } catch (e) {
+        setError(e.message);
+      }
+    };
+    fetch();
+  }, []);
 
-  const { films, error } = useFetchTrends();
+  //   const { films, error } = useFetchTrends();
   return (
     <>
       <h1>Trending movies</h1>

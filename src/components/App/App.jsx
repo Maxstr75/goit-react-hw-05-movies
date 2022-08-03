@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
 import { Loader } from 'components/Loader/Loader';
 
+const HomePage = () =>
+  import('pages/HomePage' /* webpackChunkName: "home-page" */);
 export const App = () => {
   return (
     <div
@@ -17,7 +19,9 @@ export const App = () => {
     >
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<Header />}></Route>
+          <Route path="/" element={<Header />}>
+            <Route index element={<HomePage />} />
+          </Route>
         </Routes>
       </Suspense>
     </div>
