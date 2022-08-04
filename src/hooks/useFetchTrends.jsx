@@ -4,25 +4,21 @@ import { fetchTrends } from 'services/api';
 export const useFetchTrends = () => {
   const [films, setFilms] = useState([]);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-
     const fetchData = async () => {
       try {
-        const data = await fetchTrends();
-        console.log(data);
+        const {
+          data: { results },
+        } = await fetchTrends();
 
-        setFilms(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
+        setFilms(results);
+      } catch (e) {
+        setError(e.message);
       }
     };
     fetchData();
   }, []);
 
-  return { films, error, isLoading };
+  return { films, error };
 };
