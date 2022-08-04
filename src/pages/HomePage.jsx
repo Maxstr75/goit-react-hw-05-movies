@@ -3,7 +3,7 @@ import { fetchTrends } from 'services/api';
 import { MovieList } from 'components/MovieList/MovieList';
 // import { useFetchTrends } from 'hooks/useFetchTrends';
 
-export const HomePages = () => {
+const HomePage = () => {
   // Вынес в hooks
   const [films, setFilms] = useState([]);
   const [error, setError] = useState(null);
@@ -34,3 +34,5 @@ export const HomePages = () => {
     </>
   );
 };
+
+export default HomePage

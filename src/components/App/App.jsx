@@ -1,11 +1,20 @@
-import { Suspense } from 'react';
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
-import { Loader } from 'components/Loader/Loader';
 
-const HomePage = () =>
-  import('pages/HomePage' /* webpackChunkName: "home-page" */);
 
+// const createAsyncComponent = path => {
+//   const HomePage = path.match(/[a-zA-Z]+$/)[0];
+//   return lazy(() =>
+//     import(path).then(module => ({ ...module, default: module[HomePage] }))
+//   );
+// };
+
+// const HomePage = createAsyncComponent('pages/HomePage');
+
+const HomePage = lazy(() =>
+  import('pages/HomePage' /* webpackChunkName: "home-page" */)
+);
 export const App = () => {
   return (
     <div
@@ -18,13 +27,11 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<Header />}>
-            <Route index element={<HomePage />} />
-          </Route>
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Routes>
     </div>
   );
 };
