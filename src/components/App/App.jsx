@@ -3,15 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
 
 
-// const createAsyncComponent = path => {
-//   const HomePage = path.match(/[a-zA-Z]+$/)[0];
-//   return lazy(() =>
-//     import(path).then(module => ({ ...module, default: module[HomePage] }))
-//   );
-// };
-
-// const HomePage = createAsyncComponent('pages/HomePage');
-
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home-page" */)
 );

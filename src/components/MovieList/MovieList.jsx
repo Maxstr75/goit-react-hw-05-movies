@@ -7,11 +7,11 @@ export const MovieList = ({ movieId, title }) => {
 
   return (
     <>
-      <li key={movieId}>
+      <p key={movieId}>
         <li to={movieList} state={{ from: location }}>
           {title}
         </li>
-      </li>
+      </p>
     </>
   );
 };

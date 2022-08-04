@@ -7,12 +7,17 @@ export const Header = () => {
   return (
     <>
       <nav>
-        <Link to="/">Home </Link>
-        <Link to="/">Movies</Link>
+        <li>
+          <Link to="/">Home </Link>
+        </li>
+        <li>
+          <Link to="/">Movies</Link>
+        </li>
       </nav>
       <main>
-        <Suspense fallback={<Loader />}></Suspense>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </main>
     </>
   );
