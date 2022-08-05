@@ -2,10 +2,14 @@ import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
 
-
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home-page" */)
 );
+
+const MoviesPage = lazy(() =>
+  import('pages/MoviesPage' /* webpackChunkName: "movies-page" */)
+);
+
 export const App = () => {
   return (
     <div
@@ -21,6 +25,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<HomePage />} />
+          <Route path="movies" element={<MoviesPage />} />
         </Route>
       </Routes>
     </div>

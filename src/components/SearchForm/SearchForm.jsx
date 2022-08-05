@@ -1,54 +1,37 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
-import { toast } from 'react-scripts';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
-export const SearchForm = ({ onSubmit }) => {
-  const [query, setQuery] = useState('');
+export const SearchForm = ({ onSearch }) => {
+  const { register, handleSubmit, reset } = useForm();
 
-  // Отслеживает изменение инпута и записывает значение в стейт
-  const handleChange = e => {
-    setQuery(e.currentTarget.value);
-  };
-  // Отслеживает отправку и передает значение во внешний компонент
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (query.trim() === '') {
-      toast.warn('Please specify your query!', {
-        autoClose: 3000,
-      });
+  const onSubmit = ({ query }) => {
+    const queryNormalized = query.trim();
 
-      return;
+    if (!queryNormalized) {
+      return toast('Please, enter the text');
     }
-    onSubmit(query);
+
+    onSearch(queryNormalized);
     reset();
-  };
-  // Сброс после отправки
-  const reset = () => {
-    setQuery('');
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <button type="submit">
-          <FiSearch style={{ width: 30, height: 30 }} />
-        </button>
-
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
+          {...register('query')}
           type="text"
-          name="query"
-          value={query}
-          onChange={handleChange}
+          placeholder="Movie Search"
           autoComplete="off"
           autoFocus
-          placeholder="Search movie"
         />
+        <submit type="submit">Search</submit>
       </form>
     </>
   );
 };
 
 SearchForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
