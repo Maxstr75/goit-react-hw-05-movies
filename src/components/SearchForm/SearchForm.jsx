@@ -2,31 +2,34 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-export const SearchForm = ({ onSearch }) => {
-  const { register, handleSubmit, reset } = useForm();
+export const SearchForm = ({ onSubmit }) => {
+  const { register, reset } = useForm();
 
-  const onSubmit = ({ query }) => {
-    const queryNormalized = query.trim();
+  const handleSubmit = ({ query }) => {
+    query.preventDefault();
+    if (query.trim() === '') {
+      toast.warn('Please specify your query!', {
+        autoClose: 3000,
+      });
 
-    if (!queryNormalized) {
-      return toast('Please, enter the text');
+      return;
     }
 
-    onSearch(queryNormalized);
+    onsubmit(query);
     reset();
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
         <input
           {...register('query')}
           type="text"
-          placeholder="Movie Search"
+          placeholder="Search Movie"
           autoComplete="off"
           autoFocus
         />
-        <submit type="submit">Search</submit>
+        <span type="submit">Search</span>
       </form>
     </>
   );
