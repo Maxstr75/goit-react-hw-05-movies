@@ -10,6 +10,10 @@ const MoviesPage = lazy(() =>
   import('pages/MoviesPage' /* webpackChunkName: "movies-page" */)
 );
 
+const MovieDetailsPage = lazy(() =>
+  import('pages/MovieDetailsPage' /* webpackChunkName: "movie-details-page" */)
+);
+
 export const App = () => {
   return (
     <div
@@ -26,6 +30,7 @@ export const App = () => {
         <Route path="/" element={<Header />}>
           <Route index element={<HomePage />} />
           <Route path="movies" element={<MoviesPage />} />
+          <Route path="movies/:movieId" element={<MovieDetailsPage />}></Route>
         </Route>
       </Routes>
     </div>
