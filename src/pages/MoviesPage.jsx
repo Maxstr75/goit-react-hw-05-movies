@@ -1,34 +1,36 @@
 import { MovieList } from 'components/MovieList/MovieList';
 import { SearchForm } from 'components/SearchForm/SearchForm';
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { fetchMoviesBySearch } from 'services/api';
+// import { useEffect, useState } from 'react';
+// import { useSearchParams } from 'react-router-dom';
+// import { fetchMoviesBySearch } from 'services/api';
+import { useFetchMoviesBySearch } from 'hooks/useFetchMoviesBySearch';
 
 const MoviesPages = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get('search') ?? '');
-  const [films, setFilms] = useState([]);
-  const [error, setError] = useState(null);
+  //   const [searchParams, setSearchParams] = useSearchParams();
+  //   const [search, setSearch] = useState(searchParams.get('search') ?? '');
+  //   const [films, setFilms] = useState([]);
+  //   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (search === '') {
-      return;
-    }
-    setSearchParams({ search });
+  //   useEffect(() => {
+  //     if (search === '') {
+  //       return;
+  //     }
+  //     setSearchParams({ search });
 
-    const fetchData = async () => {
-      try {
-        const {
-          data: { results },
-        } = await fetchMoviesBySearch(search);
+  //     const fetchData = async () => {
+  //       try {
+  //         const {
+  //           data: { results },
+  //         } = await fetchMoviesBySearch(search);
 
-        setFilms(results);
-      } catch (e) {
-        setError(e.message);
-      }
-    };
-    fetchData();
-  }, [search, setSearchParams]);
+  //         setFilms(results);
+  //       } catch (e) {
+  //         setError(e.message);
+  //       }
+  //     };
+  //     fetchData();
+  //   }, [search, setSearchParams]);
+  const { setSearch, films, error } = useFetchMoviesBySearch();
 
   return (
     <>
