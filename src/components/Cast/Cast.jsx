@@ -8,7 +8,7 @@ const Cast = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchData = async () => {
       try {
         const {
           data: { cast },
@@ -18,7 +18,7 @@ const Cast = () => {
         setError(e.message);
       }
     };
-    fetch();
+    fetchData();
   }, [movieId]);
 
   const getProfileImg = img => {
