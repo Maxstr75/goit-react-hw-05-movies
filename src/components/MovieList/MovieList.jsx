@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useLocation, generatePath } from 'react-router-dom';
+import { Link } from '@mui/material';
 
 export const MovieList = ({ movieId, title }) => {
   const location = useLocation();
@@ -8,9 +9,9 @@ export const MovieList = ({ movieId, title }) => {
   return (
     <>
       <p key={movieId}>
-        <li to={movieList} state={{ from: location }}>
+        <Link to={movieList} state={{ from: location }}>
           {title}
-        </li>
+        </Link>
       </p>
     </>
   );
