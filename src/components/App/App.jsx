@@ -23,14 +23,14 @@ const Reviews = lazy(() =>
 export const App = () => {
   return (
     <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'first baseline',
-        alignItems: 'left',
-        fontSize: 40,
-        color: '#010101',
-      }}
+    // style={{
+    //   height: '100vh',
+    //   display: 'flex',
+    //   justifyContent: 'first baseline',
+    //   alignItems: 'left',
+    //   fontSize: 40,
+    //   color: '#010101',
+    // }}
     >
       <Routes>
         <Route path="/" element={<Header />}>
