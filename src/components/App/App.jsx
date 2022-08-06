@@ -22,7 +22,7 @@ const Reviews = lazy(() =>
 
 export const App = () => {
   return (
-    <div
+    <h2
     // style={{
     //   height: '100vh',
     //   display: 'flex',
@@ -43,6 +43,6 @@ export const App = () => {
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
-    </div>
+    </h2>
   );
 };

@@ -1,19 +1,26 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Link } from '@mui/material';
+// import { Link } from '@mui/material';
 import { Loader } from 'components/Loader/Loader';
+import { Container } from 'components/App/App.styled';
+import {
+  LinkWrapper,
+  NavBar,
+  NavLinkStyled,
+} from 'components/Header/Heder. styled';
 
 export const Header = () => {
   return (
     <>
-      <nav>
-        <li>
-          <Link to="/">Home </Link>
-        </li>
-        <li>
-          <Link to="/movies">Movies</Link>
-        </li>
-      </nav>
+      <NavBar>
+        <Container>
+          <LinkWrapper>
+            <NavLinkStyled to="/">Home</NavLinkStyled>
+            <NavLinkStyled to="/movies">Movies</NavLinkStyled>
+          </LinkWrapper>
+        </Container>
+      </NavBar>
+
       <main>
         <Suspense fallback={<Loader />}>
           <Outlet />
