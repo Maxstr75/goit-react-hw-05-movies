@@ -7,7 +7,7 @@ export const NavBar = styled.header`
 
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #00bfff;
+  background-color: #f0e68c;
 
   box-shadow: 0px 2px 10px 1px #240b36;
   border-bottom-left-radius: 10px;
@@ -37,7 +37,7 @@ export const NavLinkStyled = styled(NavLink)`
 
   &.active {
     color: red;
-    background-color: darkblue;
+    background-color: mediumBlue;
 
     padding: 6px 12px;
     border-radius: 4px;
