@@ -10,4 +10,20 @@ export const LinkStyled = styled(Link)`
   :hover {
     color: red;
   }
+  font-size: 18px;
+  font-weight: 700;
+  color: dodgerBlue;
+
+  text-align: left;
+  margin-bottom: 0;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 34px;
+  }
 `;

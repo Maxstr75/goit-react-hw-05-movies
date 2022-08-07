@@ -22,27 +22,16 @@ const Reviews = lazy(() =>
 
 export const App = () => {
   return (
-    <h2
-    // style={{
-    //   height: '100vh',
-    //   display: 'flex',
-    //   justifyContent: 'first baseline',
-    //   alignItems: 'left',
-    //   fontSize: 40,
-    //   color: '#010101',
-    // }}
-    >
-      <Routes>
-        <Route path="/" element={<Header />}>
-          <Route index element={<HomePage />} />
-          <Route path="movies" element={<MoviesPage />} />
-          <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" />} />
+    <Routes>
+      <Route path="/" element={<Header />}>
+        <Route index element={<HomePage />} />
+        <Route path="movies" element={<MoviesPage />} />
+        <Route path="movies/:movieId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
-      </Routes>
-    </h2>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>
+    </Routes>
   );
 };

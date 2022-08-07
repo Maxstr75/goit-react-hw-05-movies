@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useLocation, generatePath } from 'react-router-dom';
-// import { Link } from '@mui/material';
 import { LinkItem, LinkStyled } from './MovieList.styled';
 
 export const MovieList = ({ movieId, title }) => {

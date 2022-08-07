@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-// import { Link } from '@mui/material';
 import {
   InfoBox,
   MovieInfo,
