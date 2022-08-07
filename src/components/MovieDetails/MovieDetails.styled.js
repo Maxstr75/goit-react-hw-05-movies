@@ -53,7 +53,7 @@ export const MoreLink = styled(Link)`
 `;
 
 export const GoBack = styled.div`
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   color: #000000;
   :hover {

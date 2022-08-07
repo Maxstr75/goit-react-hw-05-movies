@@ -13,7 +13,7 @@ const MovieDetailsPage = () => {
     <>
       <Link to={backLinkHref}>
         <GoBack>
-          <IoArrowBackOutline />
+          <IoArrowBackOutline style={{ width: 30, height: 20 }} />
           Go back
         </GoBack>
       </Link>
