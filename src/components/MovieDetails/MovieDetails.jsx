@@ -1,5 +1,13 @@
 import PropTypes from 'prop-types';
-import { Link } from '@mui/material';
+// import { Link } from '@mui/material';
+import {
+  InfoBox,
+  MovieInfo,
+  MovieItem,
+  MovieLabel,
+  MoreLink,
+  MoreInfo,
+} from './MovieDetails.styled';
 
 export const MovieDetails = ({
   film: { poster_path, release_date, vote_average, genres, title, overview },
@@ -16,46 +24,46 @@ export const MovieDetails = ({
 
   return (
     <>
-      <div>
+      <MovieInfo>
         <img src={filmPoster} alt={title} width={300} height={450} />
-        <ul>
-          <>
+        <InfoBox>
+          <MovieItem>
             <h1>
               {title} ({releaseDate})
             </h1>
             <p>User Score: {userScore}%</p>
-          </>
-          <li>
-            <label>Overview</label>
+          </MovieItem>
+          <MovieItem>
+            <MovieLabel>Overview</MovieLabel>
             <p>{overview}</p>
-          </li>
-          <li>
-            <label>Genres</label>
+          </MovieItem>
+          <MovieItem>
+            <MovieLabel>Genres</MovieLabel>
             <p>{genresList}</p>
-          </li>
-        </ul>
-      </div>
-      <div>
+          </MovieItem>
+        </InfoBox>
+      </MovieInfo>
+      <MoreInfo>
         <p>More information</p>
         <ul>
           <li>
-            <Link
+            <MoreLink
               to={`/movies/${movieId}/cast`}
               state={{ from: backFrom.current }}
             >
               --- Cast ---
-            </Link>
+            </MoreLink>
           </li>
           <li>
-            <Link
+            <MoreLink
               to={`/movies/${movieId}/reviews`}
               state={{ from: backFrom.current }}
             >
               --- Reviews ---
-            </Link>
+            </MoreLink>
           </li>
         </ul>
-      </div>
+      </MoreInfo>
     </>
   );
 };
