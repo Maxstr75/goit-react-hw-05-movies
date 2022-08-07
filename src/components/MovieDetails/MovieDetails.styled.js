@@ -51,3 +51,12 @@ export const MoreLink = styled(Link)`
     font-size: 34px;
   }
 `;
+
+export const GoBack = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  :hover {
+    color: red;
+  }
+`;

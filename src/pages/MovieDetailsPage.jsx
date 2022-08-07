@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { useFetchMovieDetails } from 'hooks/useFetchMovieDetails';
+import { GoBack } from 'components/MovieDetails/MovieDetails.styled';
 
 const MovieDetailsPage = () => {
   const { film, error, backLinkHref, movieId, backFrom } =
@@ -11,8 +12,10 @@ const MovieDetailsPage = () => {
   return (
     <>
       <Link to={backLinkHref}>
-        <IoArrowBackOutline />
-        Go back
+        <GoBack>
+          <IoArrowBackOutline />
+          Go back
+        </GoBack>
       </Link>
       {error && <p>{error}</p>}
       {film && (
